@@ -1,12 +1,31 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Column from './Column';
-import { DEFAULT_CARDS } from '@/common/defaultCards';
 import BurnBarrel from './BurnBarrel';
 
+type CardT = {
+  title: string;
+  id: string;
+  column: string;
+};
+
 export default function Board() {
-  const [cards, setCards] = useState(DEFAULT_CARDS);
+  const [cards, setCards] = useState<CardT[]>([]);
+  const [hasChecked, setHasChecked] = useState(false);
+
+  useEffect(() => {
+    hasChecked && localStorage.setItem('cards', JSON.stringify(cards));
+  }, [cards]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const cardData = localStorage.getItem('cards');
+      setCards(cardData ? JSON.parse(cardData) : []);
+      setHasChecked(true);
+    }
+  }, []);
+
   return (
     <div className='flex h-full w-full gap-3 overflow-hidden p-12'>
       <Column

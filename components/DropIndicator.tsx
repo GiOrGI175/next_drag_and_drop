@@ -1,7 +1,7 @@
 import React from 'react';
 
 type DropIndicatorPropsT = {
-  beforeId: number;
+  beforeId: string;
   column: string;
 };
 

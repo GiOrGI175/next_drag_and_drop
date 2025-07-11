@@ -5,7 +5,7 @@ import Board from './Board';
 
 export default function NotionKanban() {
   return (
-    <div className='h-screen w-full bg-neutral-900 text-neutral-50'>
+    <div className='min-h-screen w-fit bg-neutral-900 text-neutral-50'>
       <Board />
     </div>
   );
