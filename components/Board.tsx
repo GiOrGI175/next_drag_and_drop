@@ -15,8 +15,10 @@ export default function Board() {
   const [hasChecked, setHasChecked] = useState(false);
 
   useEffect(() => {
-    hasChecked && localStorage.setItem('cards', JSON.stringify(cards));
-  }, [cards]);
+    if (hasChecked) {
+      localStorage.setItem('cards', JSON.stringify(cards));
+    }
+  }, [cards, hasChecked]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

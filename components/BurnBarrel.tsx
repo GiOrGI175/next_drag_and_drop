@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { FaFire } from 'react-icons/fa';
 import { FiTrash } from 'react-icons/fi';
+import { CardT } from './Column';
 
 type BurnBarrelPropsT = {
-  setCards: React.Dispatch<React.SetStateAction<any[]>>;
+  setCards: React.Dispatch<React.SetStateAction<CardT[]>>;
 };
 
 export default function BurnBarrel({ setCards }: BurnBarrelPropsT) {

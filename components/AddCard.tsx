@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import { CardT } from './Column';
 
 type AddCardPropsT = {
   column: string;
-  setCards: React.Dispatch<React.SetStateAction<any[]>>;
+  setCards: React.Dispatch<React.SetStateAction<CardT[]>>;
 };
 
 export default function AddCard({ column, setCards }: AddCardPropsT) {
